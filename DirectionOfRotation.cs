@@ -69,8 +69,8 @@ namespace RefactorMe
 
         private static void DrawSide(int size, double angle, double angleOfRotation)
         {
-            double speedRotation = 1;
-            angle += (speedRotation * angleOfRotation);
+            double speedRotation = 3;
+            angle += (int)DirectionOfRotation.Left * (speedRotation * angleOfRotation);
 
             Renderer.Draw(Pens.Yellow, size * 0.375f, angle);
             Renderer.Draw(Pens.Yellow, size * 0.04f * Math.Sqrt(2), angle + Math.PI / 4);
@@ -81,5 +81,10 @@ namespace RefactorMe
             Renderer.Change(size * 0.04f * Math.Sqrt(2), angle + 3 * Math.PI / 4);
         }
 
+        enum DirectionOfRotation
+        {
+            Left = -1,
+            Right = 1
+        }
     }
 }
